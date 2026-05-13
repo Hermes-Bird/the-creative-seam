@@ -59,7 +59,7 @@ function ProfilePage() {
               <img src={p.image} alt={p.name} width={1080} height={1350} className="size-full object-cover" />
             </div>
             <div className="mt-5 grid grid-cols-3 gap-3">
-              {p.portfolio.slice(0, 3).map((src, i) => (
+              {p.portfolio.slice(0, 3).map((src: string, i: number) => (
                 <div key={i} className="aspect-square bg-secondary rounded-sm overflow-hidden">
                   <img src={src} alt="portfolio thumb" loading="lazy" className="size-full object-cover" />
                 </div>
@@ -124,7 +124,7 @@ function ProfilePage() {
                 <p className="label-tiny text-muted-foreground">{p.portfolio.length} pieces</p>
               </div>
               <div className="columns-2 gap-4 [column-fill:_balance]">
-                {p.portfolio.map((src, i) => (
+                {p.portfolio.map((src: string, i: number) => (
                   <div key={i} className="mb-4 break-inside-avoid img-zoom bg-secondary">
                     <img src={src} alt={`Portfolio ${i + 1}`} loading="lazy" className="w-full object-cover" />
                   </div>
