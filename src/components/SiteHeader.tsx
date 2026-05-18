@@ -6,7 +6,7 @@ import { useState } from "react";
 const links = [
   { to: "/marketplace", label: "Find a Professional" },
   { to: "/campaigns/new", label: "Projects" },
-  { to: "/messages", label: "Support" },
+  { to: "/messages", label: "Inbox" },
   { to: "/dashboard", label: "My Profile" },
 ] as const;
 
