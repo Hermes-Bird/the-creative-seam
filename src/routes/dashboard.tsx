@@ -24,7 +24,7 @@ function Dashboard() {
         <div className="flex items-end justify-between mb-12 gap-6 flex-wrap">
           <div>
             <p className="label-eyebrow">Studio · Brand</p>
-            <h1 className="font-display text-6xl lg:text-7xl mt-3 leading-[0.95]">Good morning, Atelier.</h1>
+            <h1 className="text-6xl lg:text-7xl mt-3 leading-[0.95]">Good morning, Atelier.</h1>
           </div>
           <Link to="/campaigns/new" className="btn-primary"><Plus className="size-3.5" /> New campaign</Link>
         </div>

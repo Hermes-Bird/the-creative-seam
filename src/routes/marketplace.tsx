@@ -44,7 +44,7 @@ function Marketplace() {
       <main className="flex-1">
         <section className="mx-auto max-w-[1440px] px-6 lg:px-12 pt-20 pb-12 text-center">
           <p className="label-eyebrow">The Marketplace</p>
-          <h1 className="font-display text-7xl md:text-9xl mt-5 leading-[0.9]">
+          <h1 className="text-7xl md:text-9xl mt-5 leading-[0.9]">
             I'm a brand.
           </h1>
           <p className="mt-6 max-w-xl mx-auto text-muted-foreground">

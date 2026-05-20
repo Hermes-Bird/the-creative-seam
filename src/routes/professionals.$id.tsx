@@ -71,7 +71,7 @@ function ProfilePage() {
           <div className="lg:col-span-6 space-y-10">
             <div>
               <p className="label-eyebrow">{p.role}</p>
-              <h1 className="font-display text-6xl lg:text-7xl leading-[0.95] mt-4">{p.name}</h1>
+              <h1 className="text-6xl lg:text-7xl leading-[0.95] mt-4">{p.name}</h1>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
                 <RatingBadge rating={p.rating} reviews={p.reviews} size="md" />

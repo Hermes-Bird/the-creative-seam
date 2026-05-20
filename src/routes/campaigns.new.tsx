@@ -26,7 +26,7 @@ function NewCampaign() {
       <main className="flex-1 mx-auto max-w-[1280px] px-6 lg:px-12 py-16 w-full">
         <div className="text-center mb-14">
           <p className="label-eyebrow">Campaign builder</p>
-          <h1 className="font-display text-6xl md:text-8xl mt-3 leading-[0.9]">Brief a project.</h1>
+          <h1 className="text-6xl md:text-8xl mt-3 leading-[0.9]">Brief a project.</h1>
         </div>
 
         {/* Stepper */}

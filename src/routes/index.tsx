@@ -37,10 +37,10 @@ function Index() {
       <main className="flex-1">
         {/* HERO */}
         <section className="relative">
-          <div className="mx-auto max-w-[1440px] px-6 lg:px-12 pt-16 pb-24 lg:pt-24 lg:pb-32 grid lg:grid-cols-12 gap-12 items-top">
-            <div className="lg:col-span-7 space-y-10 fade-up">
+          <div className="mx-auto max-w-[1440px] px-6 lg:px-12 pt-16 pb-24 lg:pt-24 lg:pb-32 flex flex-col items-center gap-16 lg:gap-20">
+            <div className="w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto text-center space-y-10 fade-up">
               <p className="label-eyebrow">Estd 2026 — A new kind of network</p>
-              <h1 className="text-[10vw] sm:text-[8vw] lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.9] tracking-tight">
+              <h1 className="font-petit-cochon text-[10vw] sm:text-[8vw] lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.9] tracking-tight">
                 Agency-quality<br />
                 content.<br />
                 <span className="relative inline-block">
@@ -49,13 +49,13 @@ function Index() {
                 </span>{" "}
                 <em className="not-italic">cost.</em>
               </h1>
-              <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
+              <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
                 The Seam is a curated marketplace pairing emerging brands with photographers,
                 models, stylists, MUAs, influencers and location scouts — direct, transparent,
                 editorial.
               </p>
 
-              <div className="max-w-xl">
+              <div className="w-full max-w-2xl lg:max-w-3xl mx-auto">
                 <form className="editorial-search" onSubmit={(e) => e.preventDefault()}>
                   <Search className="size-4 text-muted-foreground" />
                   <input placeholder="Search photographers, models, stylists…" />
@@ -63,7 +63,7 @@ function Index() {
                     Discover <ArrowRight className="size-3.5" />
                   </Link>
                 </form>
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-5 flex flex-wrap justify-center gap-2">
                   {["Photographer", "Model", "Stylist", "MUA", "Influencer"].map((t) => (
                     <Link key={t} to="/marketplace" className="filter-pill">{t}</Link>
                   ))}
@@ -71,7 +71,7 @@ function Index() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative">
+            <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg">
               <div className="img-zoom">
                 <img
                   src={logo}
