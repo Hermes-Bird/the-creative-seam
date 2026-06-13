@@ -11,14 +11,14 @@ export function ProfileCard({ p }: { p: Professional }) {
     >
       <div className="img-zoom relative aspect-[4/5] bg-secondary mb-5">
         <img
-          src={p.image}
+          src={p.image_url}
           alt={`${p.name} — ${p.role}`}
           loading="lazy"
           width={800}
           height={1000}
           className="absolute inset-0 size-full object-cover"
         />
-        {p.available48h && (
+        {p.available_48h && (
           <span className="absolute top-4 left-4 label-tiny bg-background/90 backdrop-blur px-3 py-1.5">
             Available · 48h
           </span>
@@ -33,7 +33,7 @@ export function ProfileCard({ p }: { p: Professional }) {
       </div>
       <div className="mt-3 flex items-center justify-between">
         <p className="label-tiny text-muted-foreground">Starts from</p>
-        <p className="text-sm font-medium tabular-nums">€{p.startsFrom.toLocaleString()}</p>
+        <p className="text-sm font-medium tabular-nums">€{p.starts_from.toLocaleString()}</p>
       </div>
     </Link>
   );

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProfileCard } from "@/components/ProfileCard";
-import { professionals } from "@/data/professionals";
+import { useProfessionals } from "@/hooks/useProfessionals";
 import { ArrowRight, Search, Sparkles, Globe2, Zap } from "lucide-react";
 import logo from "@/assets/theseam-logo.png";
 import hero2 from "@/assets/hero-2.jpg";
@@ -28,6 +28,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { data: professionals = [] } = useProfessionals();
   const featured = professionals.slice(0, 4);
 
   return (

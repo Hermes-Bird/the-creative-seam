@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { professionals } from "@/data/professionals";
+import { useProfessionals } from "@/hooks/useProfessionals";
 import { ArrowUpRight, Plus } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/dashboard")({
 });
 
 function Dashboard() {
+  const { data: professionals = [] } = useProfessionals();
   const saved = professionals.slice(0, 4);
 
   return (
@@ -88,7 +89,7 @@ function Dashboard() {
             <div className="grid grid-cols-2 gap-4">
               {saved.map((p) => (
                 <Link key={p.id} to="/professionals/$id" params={{ id: p.id }} className="img-zoom relative aspect-[4/5] bg-secondary group">
-                  <img src={p.image} alt={p.name} loading="lazy" className="size-full object-cover" />
+                  <img src={p.image_url} alt={p.name} loading="lazy" className="size-full object-cover" />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
                     <p className="text-background text-sm font-medium">{p.name}</p>
                     <p className="label-tiny text-background/80">{p.role}</p>

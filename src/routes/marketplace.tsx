@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProfileCard } from "@/components/ProfileCard";
-import { professionals } from "@/data/professionals";
+import { useProfessionals } from "@/hooks/useProfessionals";
 import { Search, SlidersHorizontal } from "lucide-react";
 
 export const Route = createFileRoute("/marketplace")({
@@ -27,15 +27,17 @@ function Marketplace() {
   const [loc, setLoc] = useState<typeof LOCATIONS[number]>("Anywhere");
   const [only48, setOnly48] = useState(false);
 
+  const { data: professionals = [], isLoading, error } = useProfessionals();
+
   const filtered = useMemo(() => {
     return professionals.filter((p) => {
       if (role !== "All" && p.role !== role) return false;
       if (loc !== "Anywhere" && !p.location.toLowerCase().includes(loc.toLowerCase())) return false;
-      if (only48 && !p.available48h) return false;
+      if (only48 && !p.available_48h) return false;
       if (q && !`${p.name} ${p.role} ${p.location}`.toLowerCase().includes(q.toLowerCase())) return false;
       return true;
     });
-  }, [q, role, loc, only48]);
+  }, [professionals, q, role, loc, only48]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -90,20 +92,38 @@ function Marketplace() {
         </section>
 
         <section className="mx-auto max-w-[1440px] px-6 lg:px-12 py-16">
-          <div className="flex items-end justify-between mb-10">
-            <p className="label-eyebrow">{filtered.length} results</p>
-            <p className="label-eyebrow">Sorted — Editorial pick</p>
-          </div>
-
-          {filtered.length === 0 ? (
+          {error ? (
             <div className="py-32 text-center">
-              <p className="font-display text-4xl">Nothing matches — yet.</p>
-              <p className="text-muted-foreground mt-3">Try widening your filters.</p>
+              <p className="font-display text-4xl">Failed to load professionals.</p>
+              <p className="text-muted-foreground mt-3">Please try again later.</p>
+            </div>
+          ) : isLoading ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-16">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="animate-pulse">
+                  <div className="aspect-[4/5] bg-secondary mb-5" />
+                  <div className="h-3 bg-secondary rounded w-2/3 mb-2" />
+                  <div className="h-5 bg-secondary rounded w-1/2" />
+                </div>
+              ))}
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-16">
-              {filtered.map((p) => <ProfileCard key={p.id} p={p} />)}
-            </div>
+            <>
+              <div className="flex items-end justify-between mb-10">
+                <p className="label-eyebrow">{filtered.length} results</p>
+                <p className="label-eyebrow">Sorted — Editorial pick</p>
+              </div>
+              {filtered.length === 0 ? (
+                <div className="py-32 text-center">
+                  <p className="font-display text-4xl">Nothing matches — yet.</p>
+                  <p className="text-muted-foreground mt-3">Try widening your filters.</p>
+                </div>
+              ) : (
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-16">
+                  {filtered.map((p) => <ProfileCard key={p.id} p={p} />)}
+                </div>
+              )}
+            </>
           )}
         </section>
       </main>
