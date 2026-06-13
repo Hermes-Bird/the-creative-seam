@@ -1,1 +1,0 @@
-import{j as e}from"./index-CVx-eIh1.js";const n=({error:r})=>e.jsx("div",{className:"min-h-screen flex items-center justify-center",children:e.jsx("p",{children:r.message})});export{n as errorComponent};
