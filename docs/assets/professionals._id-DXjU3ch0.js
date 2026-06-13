@@ -1,1 +1,0 @@
-import{j as e}from"./index-C2pG_nfS.js";const n=({error:r})=>e.jsx("div",{className:"min-h-screen flex items-center justify-center",children:e.jsx("p",{children:r.message})});export{n as errorComponent};
